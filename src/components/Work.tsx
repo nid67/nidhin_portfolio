@@ -8,7 +8,7 @@ const projects = [
     category: "AI-Powered Personal Financial Coach",
     tools: "React, TypeScript, Tailwind CSS, Firebase, Gemini API, Firestore",
     image: "/images/atom_finai.png",
-    link: "https://github.com/nid67/Atom-FinAI",
+    link: "https://atomfinai.web.app",
     description: "A premium AI-driven personal finance platform featuring smart receipt scanning, budget planning, subscription detection, and an interactive AI financial coach powered by Gemini. Features a clean fintech UI and Firestore architecture.",
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     category: "Civic Issue Reporting System",
     tools: "Flutter, Firebase, Web, Crowdsourcing",
     image: "/images/ecosentra.png",
-    link: "https://github.com/nid67/Ecosentra-Connect",
+    link: "https://ecosentra.onrender.com/",
     description: "A crowdsourced civic issue reporting system that lets citizens report local problems with ease. Built with Firebase and Flutter, it enables real-time complaint tracking and admin management.",
   },
   {
@@ -24,15 +24,22 @@ const projects = [
     category: "Campus Ecosystem App",
     tools: "Flutter, Node.js, Firebase, MySQL",
     image: "/images/rit_nexus.png",
-    link: "https://github.com/nid67/RIT-Nexus",
+    link: "https://rit-nexus.web.app/",
     description: "A comprehensive campus ecosystem for students, faculty, admin, and exam cell. Streamlines transport management, result viewing, and internal communication.",
+  },
+  {
+    title: "Campus Mate",
+    category: "Student Helper App",
+    tools: "Java, Android Studio, Firebase",
+    image: "/images/campus_mate.png",
+    description: "An attendance tracker and student assistant app designed to help students manage their daily academic tasks and stay updated with campus life.",
   },
   {
     title: "Triage X",
     category: "AI Assisted Emergency Triage",
     tools: "Python, ML, Flask, Healthcare AI",
     image: "/images/triage_x.png",
-    link: "https://github.com/nid67/Triage_X",
+    link: "https://triagex-ai-triage-system.streamlit.app",
     description: "An AI-powered emergency triage system designed to prioritize patients based on symptom severity using advanced machine learning models.",
   },
   {
@@ -40,7 +47,7 @@ const projects = [
     category: "Event Management Website",
     tools: "React.js, Tailwind CSS, GSAP",
     image: "/images/gfg_events.png",
-    link: "https://github.com/nid67/gfg-rit-events",
+    link: "https://gfg-rit-events.web.app/",
     description: "Dedicated platform for managing events for the GFG student chapter, featuring interactive UI and seamless event registration.",
   },
   {
@@ -48,7 +55,7 @@ const projects = [
     category: "NLP & AI Verification",
     tools: "Python, NLP, Streamlit, Scikit-learn",
     image: "/images/fake_news.png",
-    link: "https://github.com/nid67/Fake-News-Detector-using-NLP-and-AI-Verification",
+    link: "https://fake-news-detector-using-nlp-and-ai-verification-blade67.streamlit.app",
     description: "A Streamlit-based web app that detects fake news using Logistic Regression. Features article scraping and AI-driven verification logic.",
   },
   {
@@ -74,13 +81,6 @@ const projects = [
     image: "/images/movie_genre.png",
     link: "https://github.com/nid67/CODSOFT",
     description: "Built a model to predict movie genres based on plot summaries using Natural Language Processing and machine learning techniques.",
-  },
-  {
-    title: "Campus Mate",
-    category: "Student Helper App",
-    tools: "Java, Android Studio, Firebase",
-    image: "/images/campus_mate.png",
-    description: "An attendance tracker and student assistant app designed to help students manage their daily academic tasks and stay updated with campus life.",
   },
 ];
 
@@ -229,7 +229,7 @@ const Work = () => {
                               className="view-project-btn"
                               data-cursor="disable"
                             >
-                              View Repository
+                              {project.link.includes("github.com") ? "View Repository" : "View Project"}
                               <MdArrowOutward className="btn-icon" />
                             </a>
                           </div>
