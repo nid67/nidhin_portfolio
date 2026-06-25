@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 
 const projects = [
   {
@@ -9,6 +10,7 @@ const projects = [
     tools: "React, TypeScript, Tailwind CSS, Firebase, Gemini API, Firestore",
     image: "/images/atom_finai.png",
     link: "https://atomfinai.web.app",
+    github: "https://github.com/nid67/atom-finai",
     description: "A premium AI-driven personal finance platform featuring smart receipt scanning, budget planning, subscription detection, and an interactive AI financial coach powered by Gemini. Features a clean fintech UI and Firestore architecture.",
   },
   {
@@ -17,6 +19,7 @@ const projects = [
     tools: "Flutter, Firebase, Web, Crowdsourcing",
     image: "/images/ecosentra.png",
     link: "https://ecosentra.onrender.com/",
+    github: "https://github.com/nid67/Ecosentra-Connect",
     description: "A crowdsourced civic issue reporting system that lets citizens report local problems with ease. Built with Firebase and Flutter, it enables real-time complaint tracking and admin management.",
   },
   {
@@ -25,6 +28,7 @@ const projects = [
     tools: "Flutter, Node.js, Firebase, MySQL",
     image: "/images/rit_nexus.png",
     link: "https://rit-nexus.web.app/",
+    github: "https://github.com/nid67/RIT-Nexus",
     description: "A comprehensive campus ecosystem for students, faculty, admin, and exam cell. Streamlines transport management, result viewing, and internal communication.",
   },
   {
@@ -32,6 +36,7 @@ const projects = [
     category: "Student Helper App",
     tools: "Java, Android Studio, Firebase",
     image: "/images/campus_mate.png",
+    github: "https://github.com/nid67/Campus-Mate",
     description: "An attendance tracker and student assistant app designed to help students manage their daily academic tasks and stay updated with campus life.",
   },
   {
@@ -40,6 +45,7 @@ const projects = [
     tools: "Python, ML, Flask, Healthcare AI",
     image: "/images/triage_x.png",
     link: "https://triagex-ai-triage-system.streamlit.app",
+    github: "https://github.com/nid67/Triage_X",
     description: "An AI-powered emergency triage system designed to prioritize patients based on symptom severity using advanced machine learning models.",
   },
   {
@@ -48,6 +54,7 @@ const projects = [
     tools: "React.js, Tailwind CSS, GSAP",
     image: "/images/gfg_events.png",
     link: "https://gfg-rit-events.web.app/",
+    github: "https://github.com/nid67/gfg-rit-events",
     description: "Dedicated platform for managing events for the GFG student chapter, featuring interactive UI and seamless event registration.",
   },
   {
@@ -56,6 +63,7 @@ const projects = [
     tools: "Python, NLP, Streamlit, Scikit-learn",
     image: "/images/fake_news.png",
     link: "https://fake-news-detector-using-nlp-and-ai-verification-blade67.streamlit.app",
+    github: "https://github.com/nid67/Fake-News-Detector-using-NLP-and-AI-Verification",
     description: "A Streamlit-based web app that detects fake news using Logistic Regression. Features article scraping and AI-driven verification logic.",
   },
   {
@@ -64,6 +72,7 @@ const projects = [
     tools: "Python, Random Forest, SMOTE",
     image: "/images/fraud_detection.png",
     link: "https://github.com/nid67/CODSOFT",
+    github: "https://github.com/nid67/CODSOFT",
     description: "Developed a robust fraud detection system to identify suspicious credit card transactions using classification algorithms and data balancing techniques.",
   },
   {
@@ -72,6 +81,7 @@ const projects = [
     tools: "Python, NLP, Naive Bayes",
     image: "/images/spam_detection.png",
     link: "https://github.com/nid67/CODSOFT",
+    github: "https://github.com/nid67/CODSOFT",
     description: "Created an AI-driven SMS/Email spam detector using NLP and Naive Bayes to differentiate between ham and spam messages with high accuracy.",
   },
   {
@@ -80,6 +90,7 @@ const projects = [
     tools: "Python, TF-IDF, Multi-label Classification",
     image: "/images/movie_genre.png",
     link: "https://github.com/nid67/CODSOFT",
+    github: "https://github.com/nid67/CODSOFT",
     description: "Built a model to predict movie genres based on plot summaries using Natural Language Processing and machine learning techniques.",
   },
 ];
@@ -192,17 +203,32 @@ const Work = () => {
                       <div className="carousel-details">
                         <div className="carousel-title-row">
                           <h4>{project.title}</h4>
-                          {project.link && (
-                            <a
-                              href={project.link}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="project-icon-link"
-                              data-cursor="disable"
-                            >
-                              <MdArrowOutward />
-                            </a>
-                          )}
+                          <div style={{ display: 'flex', gap: '8px' }}>
+                            {project.github && (
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="project-icon-link"
+                                data-cursor="disable"
+                                aria-label="View Source Code"
+                              >
+                                <FaGithub />
+                              </a>
+                            )}
+                            {project.link && project.link !== project.github && (
+                              <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="project-icon-link"
+                                data-cursor="disable"
+                                aria-label="View Live Project"
+                              >
+                                <MdArrowOutward />
+                              </a>
+                            )}
+                          </div>
                         </div>
                         <p className="carousel-category">
                           {project.category}
@@ -220,18 +246,33 @@ const Work = () => {
                             ))}
                           </div>
                         </div>
-                        {project.link && (
-                          <div className="carousel-action">
-                            <a
-                              href={project.link}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="view-project-btn"
-                              data-cursor="disable"
-                            >
-                              {project.link.includes("github.com") ? "View Repository" : "View Project"}
-                              <MdArrowOutward className="btn-icon" />
-                            </a>
+                        {(project.link || project.github) && (
+                          <div className="carousel-action" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                            {project.link && project.link !== project.github && (
+                              <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="view-project-btn"
+                                data-cursor="disable"
+                              >
+                                View Project
+                                <MdArrowOutward className="btn-icon" />
+                              </a>
+                            )}
+                            {project.github && (
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="view-project-btn"
+                                style={project.link && project.link !== project.github ? { background: "transparent", border: "1px solid var(--text-main)", color: "var(--text-main)" } : {}}
+                                data-cursor="disable"
+                              >
+                                View Repository
+                                <FaGithub className="btn-icon" />
+                              </a>
+                            )}
                           </div>
                         )}
                       </div>
