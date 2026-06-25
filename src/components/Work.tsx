@@ -14,6 +14,15 @@ const projects = [
     description: "A premium AI-driven personal finance platform featuring smart receipt scanning, budget planning, subscription detection, and an interactive AI financial coach powered by Gemini. Features a clean fintech UI and Firestore architecture.",
   },
   {
+    title: "Sainya Trust",
+    category: "NGO & Charitable Organisation Website",
+    tools: "React, TypeScript, Firebase, Tailwind CSS, Vite",
+    image: "/images/sainya_trust.png",
+    link: "https://sainya-trust.web.app/",
+    github: "https://github.com/nid67/Sainya-Trust",
+    description: "A full-fledged website for Sainya Trust Kovilpatti, a registered charitable organisation in Tamil Nadu dedicated to supporting underprivileged communities, Indian military veterans, and martyrs' families. Features donation management, event listings, and an impactful public-facing UI.",
+  },
+  {
     title: "EcoSentra (SIH 2025)",
     category: "Civic Issue Reporting System",
     tools: "Flutter, Firebase, Web, Crowdsourcing",
